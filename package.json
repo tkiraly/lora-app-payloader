@@ -1,6 +1,6 @@
 {
   "name": "lora-app-payloader",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Community driven LoRa device payload parser collection",
   "main": "index.js",
   "scripts": {
