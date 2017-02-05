@@ -41,5 +41,28 @@ module.exports = {
                 throw new Error("unknown LoRa port number: " + port);
         }
 
+    },
+    CM868LR: function (payload, port = 9) {
+        switch (port) {
+            case 9:
+                if (payload) {
+                    var decoded = new Parser()
+                        .endianess('big')
+                        .bit1('BatteryType')
+                        .bit7('BatteryLevel')
+                        .bit3('Reserved')
+                        .bit2('ExternalInputStatus')
+                        .bit1('BatteryAlarm')
+                        .bit1('TamperAlarm')
+                        .bit1('ReedAlarm')
+                        .uint16('OpCnt');
+                    var buf = new Buffer(payload, 'hex');
+                    return decoded.parse(buf);
+                }
+                return null;
+            default:
+                throw new Error("unknown LoRa port number: " + port);
+        }
+
     }
 }

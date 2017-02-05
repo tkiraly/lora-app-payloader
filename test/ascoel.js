@@ -48,6 +48,37 @@ describe('Ascoel', function () {
       expect(converter.IR868LR(payloadIR868LR).OpCnt).to.eq(8);
     });
   });
+
+  describe('CM868LR', function () {
+    var payloadCM868LR = 'e4030016'
+    it(`should return 100 BatteryLevel with payload ${payloadCM868LR}`, function () {
+      expect(converter.CM868LR(payloadCM868LR).BatteryLevel).to.equal(100);
+    });
+
+    it(`should return 1 BatteryType with payload ${payloadCM868LR}`, function () {
+      expect(converter.CM868LR(payloadCM868LR).BatteryType).to.eq(1);
+    });
+
+    it(`should return 0 ExternalInputStatus with payload ${payloadCM868LR}`, function () {
+      expect(converter.CM868LR(payloadCM868LR).ExternalInputStatus).to.eq(0);
+    });
+
+    it(`should return 0 BatteryAlarm with payload ${payloadCM868LR}`, function () {
+      expect(converter.CM868LR(payloadCM868LR).BatteryAlarm).to.eq(0);
+    });
+
+    it(`should return 0 TamperAlarm with payload ${payloadCM868LR}`, function () {
+      expect(converter.CM868LR(payloadCM868LR).TamperAlarm).to.eq(1);
+    });
+
+    it(`should return 0 ReedAlarm with payload ${payloadCM868LR}`, function () {
+      expect(converter.CM868LR(payloadCM868LR).ReedAlarm).to.eq(1);
+    });
+
+    it(`should return 8 OpCnt with payload ${payloadCM868LR}`, function () {
+      expect(converter.CM868LR(payloadCM868LR).OpCnt).to.eq(22);
+    });
+  });
 });
 
 
