@@ -1,5 +1,5 @@
-var expect = require('chai').expect;
-var converter = require("../src/ascoel")
+import { expect } from 'chai'
+import converter from "../src/ascoel"
 
 describe('Ascoel', function () {
   describe('CO868LR', function () {
