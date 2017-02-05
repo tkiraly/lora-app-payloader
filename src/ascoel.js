@@ -20,6 +20,24 @@ module.exports = {
                 throw new Error("unknown LoRa port number: " + port);
         }
     },
+    TH868LR: function (payload, port = 9) {
+        switch (port) {
+            case 9:
+                if (payload) {
+                    var decoded = new Parser()
+                        .endianess('big')
+                        .bit1('BatteryType')
+                        .bit7('BatteryLevel')
+                        .floatle('TValue')
+                        .floatle('RHValue');
+                    var buf = new Buffer(payload, 'hex');
+                    return decoded.parse(buf);
+                }
+                return null;
+            default:
+                throw new Error("unknown LoRa port number: " + port);
+        }
+    },
     IR868LR: function (payload, port = 9) {
         switch (port) {
             case 9:

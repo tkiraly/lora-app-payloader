@@ -25,6 +25,24 @@ describe('Ascoel', function () {
     });
   });
 
+  describe('TH868LR', function () {
+    var payloadTH868LR = 'e4292e7b41002d1c42'
+    it(`should return 100 BatteryLevel with payload ${payloadTH868LR}`, function () {
+      expect(converter.TH868LR(payloadTH868LR).BatteryLevel).to.eq(100);
+    });
+
+    it(`should return 1 BatteryType with payload ${payloadTH868LR}`, function () {
+      expect(converter.TH868LR(payloadTH868LR).BatteryLevel).to.eq(100);
+    });
+
+    it(`should return 15.698769569396973 TValue with payload ${payloadTH868LR}`, function () {
+      expect(converter.TH868LR(payloadTH868LR).TValue).to.eq(15.698769569396973);
+    });
+
+    it(`should return 39.0439453125 RHValue with payload ${payloadTH868LR}`, function () {
+      expect(converter.TH868LR(payloadTH868LR).RHValue).to.eq(39.0439453125);
+    });
+  });
 
   describe('IR868LR', function () {
     var payloadIR868LR = 'e40008ac'
