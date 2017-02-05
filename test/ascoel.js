@@ -1,5 +1,5 @@
 var expect = require('chai').expect;
-var converter = require("./../ascoel")
+var converter = require("../src/ascoel")
 
 describe('Ascoel', function () {
   describe('CO868LR', function () {

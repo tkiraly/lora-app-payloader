@@ -2,14 +2,20 @@
   "name": "lora-app-payloader",
   "version": "0.0.0-development",
   "description": "Community driven LoRa device payload parser collection",
-  "main": "index.js",
+  "main": "dist/nindex.js",
   "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "babel --copy-files --out-dir dist src",
     "check-coverage": "istanbul check-coverage --statements 70 --branches 50 --functions 100 --lines 70",
     "commit": "git-cz",
     "report-coverage": "minicat ./coverage/lcov.info | codecov",
-    "test": "istanbul cover -x test/*.* node_modules/mocha/bin/_mocha -- -R spec",
+    "test": "istanbul cover -x test/*.* node_modules/mocha/bin/_mocha -- -R spec test/*.*",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "author": "Tamás Király <kiraly.tamas@outlook.com>",
   "license": "ISC",
   "repository": {
@@ -21,6 +27,9 @@
   },
   "homepage": "https://github.com/tkiraly/lora-app-payloader#readme",
   "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-stage-2": "^6.22.0",
     "chai": "^3.5.0",
     "codecov.io": "^0.1.6",
     "commitizen": "^2.9.5",
@@ -29,6 +38,7 @@
     "istanbul": "^0.4.5",
     "minicat": "^1.0.0",
     "mocha": "^3.2.0",
+    "rimraf": "^2.5.4",
     "semantic-release": "^6.3.2"
   },
   "dependencies": {
@@ -41,5 +51,11 @@
     "ghooks": {
       "pre-commit": "npm run test && npm run check-coverage"
     }
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-2"
+    ]
   }
 }
