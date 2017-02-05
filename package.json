@@ -4,8 +4,10 @@
   "description": "Community driven LoRa device payload parser collection",
   "main": "index.js",
   "scripts": {
+    "check-coverage": "istanbul check-coverage --statements 70 --branches 50 --functions 100 --lines 70",
     "commit": "git-cz",
-    "test": "mocha",
+    "report-coverage": "minicat ./coverage/lcov.info | codecov",
+    "test": "istanbul cover -x test/*.* node_modules/mocha/bin/_mocha -- -R spec",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "author": "Tamás Király <kiraly.tamas@outlook.com>",
@@ -20,9 +22,12 @@
   "homepage": "https://github.com/tkiraly/lora-app-payloader#readme",
   "devDependencies": {
     "chai": "^3.5.0",
+    "codecov.io": "^0.1.6",
     "commitizen": "^2.9.5",
     "cz-conventional-changelog": "^1.2.0",
     "ghooks": "^2.0.0",
+    "istanbul": "^0.4.5",
+    "minicat": "^1.0.0",
     "mocha": "^3.2.0",
     "semantic-release": "^6.3.2"
   },
@@ -34,7 +39,7 @@
   },
   "config": {
     "ghooks": {
-      "pre-commit": "npm run test"
+      "pre-commit": "npm run test && npm run check-coverage"
     }
   }
 }
