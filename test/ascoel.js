@@ -79,6 +79,40 @@ describe('Ascoel', function () {
       expect(converter.CM868LR(payloadCM868LR).OpCnt).to.eq(22);
     });
   });
+  describe('CM868LRTH', function () {
+    var payloadCM868LRTH = 'e40192deaf4170f02942'
+    it(`should return 100 BatteryLevel with payload ${payloadCM868LRTH}`, function () {
+      expect(converter.CM868LRTH(payloadCM868LRTH).BatteryLevel).to.equal(100);
+    });
+
+    it(`should return 1 BatteryType with payload ${payloadCM868LRTH}`, function () {
+      expect(converter.CM868LRTH(payloadCM868LRTH).BatteryType).to.eq(1);
+    });
+
+    it(`should return 0 ExternalInputStatus with payload ${payloadCM868LRTH}`, function () {
+      expect(converter.CM868LRTH(payloadCM868LRTH).ExternalInputStatus).to.eq(0);
+    });
+
+    it(`should return 0 BatteryAlarm with payload ${payloadCM868LRTH}`, function () {
+      expect(converter.CM868LRTH(payloadCM868LRTH).BatteryAlarm).to.eq(0);
+    });
+
+    it(`should return 0 TamperAlarm with payload ${payloadCM868LRTH}`, function () {
+      expect(converter.CM868LRTH(payloadCM868LRTH).TamperAlarm).to.eq(0);
+    });
+
+    it(`should return 0 ReedAlarm with payload ${payloadCM868LRTH}`, function () {
+      expect(converter.CM868LRTH(payloadCM868LRTH).ReedAlarm).to.eq(1);
+    });
+
+    it(`should return 21.98367691040039 TValue with payload ${payloadCM868LRTH}`, function () {
+      expect(converter.CM868LRTH(payloadCM868LRTH).TValue).to.eq(21.98367691040039);
+    });
+
+    it(`should return 42.48480224609375 RHValue with payload ${payloadCM868LRTH}`, function () {
+      expect(converter.CM868LRTH(payloadCM868LRTH).RHValue).to.eq(42.48480224609375);
+    });
+  });
 });
 
 
