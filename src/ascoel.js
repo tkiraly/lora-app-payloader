@@ -54,6 +54,18 @@ module.exports = {
                     var buf = new Buffer(payload, 'hex');
                     return decoded.parse(buf);
                 }
+            case 20:
+                if (payload) {
+                    var decoded = new Parser()
+                        .endianess('big')
+                        .bit5('Reserved')
+                        .bit1('BatteryAlarm')
+                        .bit1('TamperAlarm')
+                        .bit1('IntrusionAlarm')
+                        .uint16('OpCnt');
+                    var buf = new Buffer(payload, 'hex');
+                    return decoded.parse(buf);
+                }
                 return null;
             default:
                 throw new Error("unknown LoRa port number: " + port);

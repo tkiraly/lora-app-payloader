@@ -45,25 +45,46 @@ describe('Ascoel', function () {
   });
 
   describe('IR868LR', function () {
-    var payloadIR868LR = 'e40008ac'
-    it(`should return 100 BatteryLevel with payload ${payloadIR868LR}`, function () {
-      expect(converter.IR868LR(payloadIR868LR).BatteryLevel).to.equal(100);
-    });
+    describe('port 9', function () {
+      var payload = 'e40008ac'
+      it(`should return 100 BatteryLevel with payload ${payload}`, function () {
+        expect(converter.IR868LR(payload).BatteryLevel).to.equal(100);
+      });
 
-    it(`should return 1 BatteryType with payload ${payloadIR868LR}`, function () {
-      expect(converter.IR868LR(payloadIR868LR).BatteryType).to.eq(1);
-    });
+      it(`should return 1 BatteryType with payload ${payload}`, function () {
+        expect(converter.IR868LR(payload).BatteryType).to.eq(1);
+      });
 
-    it(`should return 0 BatteryAlarm with payload ${payloadIR868LR}`, function () {
-      expect(converter.IR868LR(payloadIR868LR).BatteryAlarm).to.eq(0);
-    });
+      it(`should return 0 BatteryAlarm with payload ${payload}`, function () {
+        expect(converter.IR868LR(payload).BatteryAlarm).to.eq(0);
+      });
 
-    it(`should return 0 IntrusionAlarm with payload ${payloadIR868LR}`, function () {
-      expect(converter.IR868LR(payloadIR868LR).IntrusionAlarm).to.eq(0);
-    });
+      it(`should return 0 TamperAlarm with payload ${payload}`, function () {
+        expect(converter.IR868LR(payload).TamperAlarm).to.eq(0);
+      });
 
-    it(`should return 8 OpCnt with payload ${payloadIR868LR}`, function () {
-      expect(converter.IR868LR(payloadIR868LR).OpCnt).to.eq(8);
+      it(`should return 0 IntrusionAlarm with payload ${payload}`, function () {
+        expect(converter.IR868LR(payload).IntrusionAlarm).to.eq(0);
+      });
+
+      it(`should return 8 OpCnt on port 9 with payload ${payload}`, function () {
+        expect(converter.IR868LR(payload).OpCnt).to.eq(8);
+      });
+    });
+    describe('port 20', function () {
+      var payload = '0108af'
+      it(`should return 0 BatteryAlarm on port 20 with payload ${payload}`, function () {
+        expect(converter.IR868LR(payload, 20).BatteryAlarm).to.eq(0);
+      });
+      it(`should return 0 TamperAlarm on port 20 with payload ${payload}`, function () {
+        expect(converter.IR868LR(payload, 20).TamperAlarm).to.eq(0);
+      });
+      it(`should return 1 IntrusionAlarm on port 20 with payload ${payload}`, function () {
+        expect(converter.IR868LR(payload, 20).IntrusionAlarm).to.eq(1);
+      });
+      it(`should return 2223 OpCnt on port 20 with payload ${payload}`, function () {
+        expect(converter.IR868LR(payload, 20).OpCnt).to.eq(2223);
+      });
     });
   });
 
