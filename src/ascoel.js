@@ -15,6 +15,16 @@ module.exports = {
                     var buf = new Buffer(payload, 'hex');
                     return decoded.parse(buf);
                 }
+            case 7:
+                if (payload) {
+                    var text = parseport7(payload)
+                    var obj = {
+                        FW: text.substr(0, 3),
+                        lorawanClient: text.substr(4, 5),
+                        HW: text.substr(10, 1)
+                    }
+                    return obj;
+                }
                 return null;
             default:
                 throw new Error("unknown LoRa port number: " + port);
@@ -117,4 +127,16 @@ module.exports = {
                 throw new Error("unknown LoRa port number: " + port);
         }
     }
+}
+
+function parseport7(payload) {
+    var text = '';
+    var first = payload[0];
+    for (var index = 0; index < payload.length; index += 2) {
+        var c = payload[index];
+        var n = payload[index + 1];
+        text += String.fromCharCode(parseInt(c.concat(n), 16))
+    }
+
+    return text
 }

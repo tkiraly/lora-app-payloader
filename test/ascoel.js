@@ -1,27 +1,41 @@
-import { expect } from 'chai'
-import converter from "../src/ascoel"
+var expect = require('chai').expect;
+var converter = require("../src/ascoel")
 
 describe('Ascoel', function () {
   describe('CO868LR', function () {
-    var payloadCO868LR = 'e4a432704160684e4202b5'
-    it(`should return 100 BatteryLevel with payload ${payloadCO868LR}`, function () {
-      expect(converter.CO868LR(payloadCO868LR).BatteryLevel).to.eq(100);
-    });
+    describe('port 9', function () {
+      var payload = 'e4a432704160684e4202b5'
+      it(`should return 100 BatteryLevel with payload ${payload}`, function () {
+        expect(converter.CO868LR(payload).BatteryLevel).to.eq(100);
+      });
 
-    it(`should return 1 BatteryType with payload ${payloadCO868LR}`, function () {
-      expect(converter.CO868LR(payloadCO868LR).BatteryLevel).to.eq(100);
-    });
+      it(`should return 1 BatteryType with payload ${payload}`, function () {
+        expect(converter.CO868LR(payload).BatteryLevel).to.eq(100);
+      });
 
-    it(`should return 15.01236343383789 TValue with payload ${payloadCO868LR}`, function () {
-      expect(converter.CO868LR(payloadCO868LR).TValue).to.eq(15.01236343383789);
-    });
+      it(`should return 15.01236343383789 TValue with payload ${payload}`, function () {
+        expect(converter.CO868LR(payload).TValue).to.eq(15.01236343383789);
+      });
 
-    it(`should return 51.6019287109375 RHValue with payload ${payloadCO868LR}`, function () {
-      expect(converter.CO868LR(payloadCO868LR).RHValue).to.eq(51.6019287109375);
-    });
+      it(`should return 51.6019287109375 RHValue with payload ${payload}`, function () {
+        expect(converter.CO868LR(payload).RHValue).to.eq(51.6019287109375);
+      });
 
-    it(`should return 693 CO2Value with payload ${payloadCO868LR}`, function () {
-      expect(converter.CO868LR(payloadCO868LR).CO2Value).to.eq(693);
+      it(`should return 693 CO2Value with payload ${payload}`, function () {
+        expect(converter.CO868LR(payload).CO2Value).to.eq(693);
+      });
+    });
+    describe('port 7', function () {
+      var payload = '302e352c332e342e312c42'
+      it(`should return 0.5 FW with payload ${payload}`, function () {
+        expect(converter.CO868LR(payload, 7).FW).to.eq('0.5');
+      });
+      it(`should return 3.4.1 lorawanClient with payload ${payload}`, function () {
+        expect(converter.CO868LR(payload, 7).lorawanClient).to.eq('3.4.1');
+      });
+      it(`should return B HW with payload ${payload}`, function () {
+        expect(converter.CO868LR(payload, 7).HW).to.eq('B');
+      });
     });
   });
 

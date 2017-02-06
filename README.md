@@ -39,7 +39,7 @@ Payload description or device documentation are also appreciated!
 - [ ] CO868LR
   - [ ] Presentation (port 5)
   - [ ] Serial number (port 6)
-  - [ ] FW release, library release, HW release (port 7)
+  - [X] FW release, library release, HW release (port 7)
   - [ ] Battery level (port 8)
   - [X] Alive (port 9)
   - [ ] ACK (port 10)
