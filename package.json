@@ -15,7 +15,7 @@
     "report-coverage": "nyc report --reporter=text-lcov | coveralls",
     "watch:test": "npm test -- -w",
     "test": "mocha test/*.* --compilers js:babel-register",
-    "cover": "nyc npm test",
+    "cover": "nyc npm test && nyc report --reporter=html",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "files": [

@@ -97,6 +97,12 @@ Payload description or device documentation are also appreciated!
   - [ ] Configuration Cluster
   - [ ] LoRaWAN (for V3.4 version) Cluster
   - [ ] Temperature Measurement Cluster
+    - [ ] Read attribute response
+    - [ ] Configure reporting response
+    - [ ] Read reporting configuration response
+    - [X] Report attributes
+    - [ ] Min Measured value read attribute response
+    - [ ] Max Measured value read attribute response
   - [ ] Relative Humidity Measurement Cluster
   - [ ] Analog Input Cluster
 
