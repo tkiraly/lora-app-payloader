@@ -44,6 +44,7 @@ Payload description or device documentation are also appreciated!
   - [X] Alive (port 9)
   - [ ] ACK (port 10)
   - [ ] Specific Sensor Information message (port 50)
+
 - [ ] TH868LR
   - [ ] Presentation (port 5)
   - [ ] Serial number (port 6)
@@ -52,6 +53,7 @@ Payload description or device documentation are also appreciated!
   - [X] Alive (port 9)
   - [ ] ACK (port 10)
   - [ ] Specific Sensor Information message (port 50)
+
 - [ ] IR868LR
   - [ ] Presentation (port 5)
   - [ ] Serial number (port 6)
@@ -60,6 +62,7 @@ Payload description or device documentation are also appreciated!
   - [X] Alive (port 9)
   - [ ] ACK (port 10)
   - [X] Specific Sensor Information message (port 20)
+
 - [ ] CM868LR
   - [ ] Presentation (port 5)
   - [ ] Serial number (port 6)
@@ -68,6 +71,7 @@ Payload description or device documentation are also appreciated!
   - [X] Alive (port 9)
   - [ ] ACK (port 10)
   - [ ] Specific Sensor Information message (port 30)
+
 - [ ] CM868LRTH
   - [ ] Presentation (port 5)
   - [ ] Serial number (port 6)
@@ -77,8 +81,28 @@ Payload description or device documentation are also appreciated!
   - [ ] ACK (port 10)
   - [ ] Specific Sensor Information message (port 30)
 
+### [NKE Watteco](http://www.nke-watteco.com/)
+
+- [ ] Smart plug
+  - [ ] Basic Cluster
+  - [ ] Configuration Cluster
+  - [ ] LoRaWAN (for V3.4 version) Cluster
+  - [ ] On/Off Cluster
+  - [ ] Simple Metering Cluster
+  - [ ] Power Quality Cluster
+
+
+- [ ] THr sensor
+  - [ ] Basic Cluster
+  - [ ] Configuration Cluster
+  - [ ] LoRaWAN (for V3.4 version) Cluster
+  - [ ] Temperature Measurement Cluster
+  - [ ] Relative Humidity Measurement Cluster
+  - [ ] Analog Input Cluster
+
 ### [Turboes](http://www.turboes.com)
 
+- [ ] TBS100
 
 - [X] TBS200
   - [X] Status (uplink)
