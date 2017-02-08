@@ -1,7 +1,7 @@
 var Parser = require('binary-parser').Parser;
 
 module.exports = {
-    THr: function (payload) {
+    THR: function (payload) {
 
         if (payload) {
             var obj = {};
