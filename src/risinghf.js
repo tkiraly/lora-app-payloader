@@ -23,8 +23,7 @@ function parse(payload) {
     obj.Temperature = 175.72 * obj.Temperature / Math.pow(2, 16) - 46.85
     obj.Humidity = 125 * obj.Humidity / Math.pow(2, 8) - 6
     obj.Period = obj.Period * 2
-    obj.RSSI = obj.RSSI === 0xff ? null : -180 + obj.RSSI
-    //var SNR = obj.SNR && 0x80 ? -(~obj.SNR + 1) : obj.SNR
+    obj.RSSI = obj.RSSI === 0xff ? 0 : -180 + obj.RSSI
     obj.SNR =  obj.SNR / 4
     obj.Battery = (obj.Battery + 150) * 0.01
     return obj
