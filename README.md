@@ -1,5 +1,7 @@
 # lora-app-payloader
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/tkiraly/lora-app-payloader.svg)](https://greenkeeper.io/)
+
 [![Travis](https://img.shields.io/travis/rust-lang/rust.svg?style=plastic)](https://travis-ci.org/tkiraly/lora-app-payloader)
 [![Coveralls](https://img.shields.io/coveralls/tkiraly/lora-app-payloader.svg)](https://coveralls.io/github/tkiraly/lora-app-payloader)
 [![David](https://img.shields.io/david/tkiraly/lora-app-payloader.svg?style=plastic)](https://david-dm.org/tkiraly/lora-app-payloader)
