@@ -1,6 +1,6 @@
 module.exports = {
-    parseDecodedPayload: function (payload, manufacturer, devicename) {
-        var manufacturer = require('./' + manufacturer);
-        return manufacturer[devicename](payload);
-    }
+  parseDecodedPayload: function (payload, manufacturer, devicename) {
+    var manufacturerobj = require('./' + manufacturer)
+    return manufacturerobj[devicename](payload)
+  }
 }
